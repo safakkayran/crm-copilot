@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+      - name: Set up Python
+        run: uv python install 3.11
+      - name: Install dependencies
+        run: uv sync --dev
+      - name: Run ruff
+        run: uv run ruff check .
+      - name: Run pytest
+        run: uv run pytest -q
+        env:
+          LLM_BASE_URL: http://localhost:4000
+          LLM_API_KEY: dummy
+          LLM_MODEL: nim-laguna
+          TWENTY_BASE_URL: http://localhost:3000
+          TWENTY_API_KEY: dummy
+          TWENTY_REST_PREFIX: /rest
+          AUTO_APPLY: "false"
+          CACHE_DIR: .cache
