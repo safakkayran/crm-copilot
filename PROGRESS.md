@@ -15,26 +15,44 @@
 
 ---
 
-### M1 - Models + LLM wrapper
-- Status: NOT STARTED
+### M1 - Models + LLM wrapper ✅
+- `config.py`: Settings with pydantic-settings
+- `models.py`: MeddpiccField, CallInsights, StageSuggestion, TaskDraft, EmailDraft, UpdatePlan, ApplyResult
+- `llm.py`: CachedLLMClient with disk cache, retry on 429/5xx, JSON validation retry
+- Tests: cache hit, invalid JSON retry, 429 retry, convenience function
+- Gate: PASSED (14 tests)
+
+---
 
 ### M2 - Extraction
-- Status: NOT STARTED
+- Status: IN PROGRESS
+
+---
 
 ### M3 - Planner + follow-up
 - Status: NOT STARTED
 
+---
+
 ### M4 - Fake adapter + apply + CLI (REVIEW CHECKPOINT)
 - Status: NOT STARTED
+
+---
 
 ### M5 - Twenty adapter
 - Status: NOT STARTED
 
+---
+
 ### M6 - MCP server
 - Status: NOT STARTED
 
+---
+
 ### M7 - Examples + evals
 - Status: NOT STARTED
+
+---
 
 ### M8 - Polish (FINAL REVIEW CHECKPOINT)
 - Status: NOT STARTED
