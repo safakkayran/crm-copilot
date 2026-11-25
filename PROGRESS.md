@@ -32,13 +32,22 @@
 
 ---
 
-### M3 - Planner + follow-up
-- Status: IN PROGRESS
+### M3 - Planner + follow-up ✅
+- `planner.py`: Deterministic stage rules, missing fields, opportunity fields, note markdown, tasks
+- `followup.py`: LLM-based follow-up email with no em dashes
+- Tests: stage rules (4), missing fields, opportunity fields, note markdown, tasks, followup no em dash, integration
+- Gate: PASSED (33 tests)
 
 ---
 
-### M4 - Fake adapter + apply + CLI (REVIEW CHECKPOINT)
-- Status: NOT STARTED
+### M4 - Fake adapter + apply + CLI (REVIEW CHECKPOINT) ✅
+- `crm/base.py`: CRMAdapter Protocol with all required methods
+- `crm/fake.py`: FakeAdapter in-memory implementation with idempotent upserts
+- `apply.py`: apply_plan() delegation to adapter
+- `cli.py`: Typer CLI with `process`, `missing`, `doctor`, `mcp` commands
+- `crm/__init__.py`: exports
+- Tests: FakeAdapter CRUD, idempotency, apply_plan, CLI dry-run, output file, missing, doctor, help
+- Gate: PASSED (48 tests)
 
 ---
 
