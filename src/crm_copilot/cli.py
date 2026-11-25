@@ -16,6 +16,7 @@ from crm_copilot.crm.fake import FakeAdapter  # noqa: TC001
 from crm_copilot.crm.twenty import TwentyAdapter  # noqa: TC001
 from crm_copilot.extract import extract_insights  # noqa: TC001
 from crm_copilot.llm import complete_json  # noqa: TC001
+from crm_copilot.mcp_server import main as mcp_main  # noqa: TC001
 from crm_copilot.models import EmailDraft, UpdatePlan  # noqa: TC001
 from crm_copilot.planner import plan_updates  # noqa: TC001
 
@@ -216,8 +217,7 @@ def doctor() -> None:
 @app.command()
 def mcp() -> None:
     """Run MCP server (stdio)."""
-    console.print("[yellow]MCP server not yet implemented[/yellow]")
-    raise typer.Exit(1)
+    mcp_main()
 
 
 if __name__ == "__main__":

@@ -66,8 +66,14 @@
 
 ---
 
-### M6 - MCP server
-- Status: NOT STARTED
+### M6 - MCP server ✅
+- `mcp_server.py`: FastMCP server with 4 tools:
+  - `process_transcript(transcript)` → UpdatePlan: extract insights + plan updates
+  - `apply_plan_tool(plan)` → ApplyResult: apply plan to CRM (Twenty or Fake)
+  - `list_gaps()` → list[dict]: open opportunities with MEDDPICC gaps
+  - `health_check()` → dict: LLM + Twenty connectivity status
+- CLI `mcp` command runs the stdio server
+- Gate: PASSED (48 tests)
 
 ---
 

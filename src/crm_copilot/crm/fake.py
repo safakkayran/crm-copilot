@@ -129,3 +129,10 @@ class FakeAdapter(CRMAdapter):
             })
 
         return result
+
+    def close(self) -> None:
+        """Close the adapter (no-op for FakeAdapter)."""
+
+    def health_check(self) -> bool:
+        """Health check (always passes for FakeAdapter)."""
+        return True
