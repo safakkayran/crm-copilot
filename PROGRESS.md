@@ -77,8 +77,13 @@
 
 ---
 
-### M7 - Examples + evals
-- Status: NOT STARTED
+### M7 - Examples + evals ✅
+- `examples/transcript_1_discovery.txt`: Discovery call - pain, budget ($120k ARR lost), decision makers (VP Eng, CTO), criteria, timeline (Q1)
+- `examples/transcript_2_negotiation.txt`: Negotiation - pricing ($52.5k enterprise), SSO, security review, procurement
+- `examples/transcript_3_evaluation.txt`: Technical deep dive - EU data residency, CMK, encryption, PII, SIG Lite questionnaire
+- `examples/run_eval.py`: Evaluation script running full pipeline (extract → plan → apply) on all transcripts
+- `examples/README.md`: Documentation with expected MEDDPICC extraction for each transcript
+- Note: Actual LLM eval requires LiteLLM proxy with API keys (NVIDIA NIM, Groq, OpenRouter) - framework complete
 
 ---
 

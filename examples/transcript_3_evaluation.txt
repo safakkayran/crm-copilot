@@ -1,0 +1,39 @@
+# Example transcript 3: Evaluation stage - technical deep dive
+
+Alex (Rep): Thanks for the deep dive session today. I know your team wants to validate the technical architecture.
+
+David (Lead Eng): Yes. Our main concerns: data residency (EU), encryption at rest, and how you handle PII in workflow logs.
+
+Alex: All data stays in EU regions (Frankfurt primary, Paris backup). AES-256 at rest, TLS 1.3 in transit. PII detection is built-in - you can configure field-level redaction rules.
+
+David: Can we bring our own keys?
+
+Alex: Enterprise tier supports CMK via AWS KMS or HashiCorp Vault. Growth tier uses our managed keys.
+
+David: What about the PostgreSQL integration? We use read replicas heavily.
+
+Alex: We support read replica connections natively. You configure the replica endpoint, we handle failover. CDC (change data capture) is in beta - can enable for your org.
+
+David: How does the Slack integration handle message deduplication?
+
+Alex: Each workflow execution gets a unique ID. We use that as the idempotency key for Slack API calls. You can also configure custom deduplication windows.
+
+David: Impressive. What's your incident response SLA?
+
+Alex: Enterprise: 15-min acknowledgment, 1-hour resolution for P1. Growth: 1-hour acknowledgment, 4-hour resolution.
+
+David: We need to run a security questionnaire. Standard SIG Lite?
+
+Alex: Yes, we have completed SIG Lite, CAIQ, and CSA STAR. I'll send the package today.
+
+David: Timeline-wise, if security passes, we're looking at a 2-week implementation sprint in January.
+
+Alex: We can assign a solutions engineer for the implementation. They'll help with migration from Zapier.
+
+David: That would help. Our team is stretched.
+
+Alex: I'll include SE allocation in the order form. Any other technical blockers?
+
+David: Just the CMK confirmation. If growth tier doesn't support it, we need enterprise.
+
+Alex: Confirmed - CMK is enterprise only. I'll note that in the follow-up.

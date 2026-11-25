@@ -1,0 +1,33 @@
+# Example transcript 2: Qualified opportunity - pricing negotiation
+
+Maria (Rep): Thanks for joining the POC review, Sarah and Mike.
+
+Mike (VP Eng): The POC went well. Your platform handled all three use cases reliably. The monitoring dashboard is a big plus.
+
+Sarah (Prospect): Agreed. The Slack integration works seamlessly. One concern - the API rate limits on the growth tier.
+
+Maria: The growth tier includes 100k executions/month. You mentioned ~50k currently. We can add a buffer pack if needed.
+
+Mike: What about the enterprise features? SSO, audit logs, custom roles?
+
+Maria: Those are in the enterprise tier at $45k/year. Includes dedicated support and 99.99% SLA.
+
+Sarah: Our budget is $75k max. Can we do growth tier + SSO add-on?
+
+Maria: SSO is enterprise-only due to compliance. But I can do enterprise at $50k with a 2-year commitment, which includes everything.
+
+Mike: Two years is a big commitment. What about a 1-year at $55k?
+
+Maria: I can do 1-year at $52.5k with quarterly business reviews included. That's the best I can get approved.
+
+Sarah: Let me run this by Lisa (CTO). She'll want to review the contract terms.
+
+Maria: Of course. I'll send the order form and MSA today. Key terms: 1-year, $52.5k, net-30, auto-renewal unless 60-day notice.
+
+Mike: Security review usually takes 2 weeks. Can we start the paperwork now?
+
+Maria: Absolutely. I'll also include the DPA and SOC2 report for your security team.
+
+Sarah: Great. Target is to have this signed before end of month so we can onboard in January.
+
+Maria: Perfect. I'll follow up Friday with the docs.

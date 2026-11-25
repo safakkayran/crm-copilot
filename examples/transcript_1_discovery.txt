@@ -1,0 +1,39 @@
+# Example transcript 1: Discovery call with SaaS buyer
+
+John (Rep): Thanks for taking the time today. I know you're evaluating solutions for your team's workflow automation.
+
+Sarah (Prospect): Yes, we've been looking at a few options. Currently using a mix of Zapier and custom scripts but it's becoming unmaintainable.
+
+John: What's the main pain point?
+
+Sarah: Reliability. Our webhooks fail silently, debugging takes hours, and we have no visibility into what's running. Last month we lost a major client because an automation didn't fire.
+
+John: That's painful. What's the impact in dollars?
+
+Sarah: That client was $120k ARR. Plus engineering time - probably 20 hours a week firefighting.
+
+John: Got it. Who else is involved in this decision?
+
+Sarah: My VP of Engineering, Mike, needs to sign off. And our CTO, Lisa, for anything over $50k.
+
+John: What's your timeline?
+
+Sarah: We need something in place by Q1. Budget is approved for up to $75k/year.
+
+John: What criteria are you evaluating on?
+
+Sarah: Reliability first, then ease of use for non-technical team members, integration with our stack (PostgreSQL, Slack, Salesforce), and pricing transparency.
+
+John: Have you looked at any competitors?
+
+Sarah: We've demoed Tray.io and Workato. Tray was too complex, Workato pricing was opaque.
+
+John: What's your current process for evaluating vendors?
+
+Sarah: Technical proof-of-concept with our top 3 use cases, then security review, then procurement.
+
+John: Great. Next steps - I'll set up a POC environment for your three use cases. Can we aim for next Tuesday to review?
+
+Sarah: Tuesday works. I'll bring Mike to that call.
+
+John: Perfect. I'll send a calendar invite with the POC access details.
