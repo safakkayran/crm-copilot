@@ -87,8 +87,12 @@
 
 ---
 
-### M8 - Polish (FINAL REVIEW CHECKPOINT)
-- Status: NOT STARTED
+### M8 - Polish (FINAL REVIEW CHECKPOINT) ✅
+- Comprehensive README.md with quickstart, architecture, config, CLI commands, MCP tools, project structure
+- All gates passing (ruff + pytest)
+- 48 tests across M0-M7
+- No paid services, tests fully offline, no invented APIs
+- Tags: m0-done through m8-done pushed to GitHub
 
 ---
 
