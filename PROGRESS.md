@@ -24,13 +24,16 @@
 
 ---
 
-### M2 - Extraction
-- Status: IN PROGRESS
+### M2 - Extraction ✅
+- `prompts/extract.md`: Detailed extraction prompt
+- `extract.py`: extract_insights() with LLM call and anti-hallucination verification
+- Tests: valid quote kept, invalid quote nulled, null quote unchanged, LLM call + verification, hallucinated quote removed
+- Gate: PASSED (19 tests)
 
 ---
 
 ### M3 - Planner + follow-up
-- Status: NOT STARTED
+- Status: IN PROGRESS
 
 ---
 
