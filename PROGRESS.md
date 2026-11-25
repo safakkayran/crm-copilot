@@ -51,8 +51,18 @@
 
 ---
 
-### M5 - Twenty adapter
-- Status: NOT STARTED
+### M5 - Twenty adapter ✅
+- Verified live Twenty instance against ANSWERS.md spec (`/rest` prefix, field names, filter syntax)
+- `crm/twenty.py`: TwentyAdapter with full REST API implementation
+  - Company CRUD (find, upsert with idempotency)
+  - Opportunity CRUD (find open, upsert with idempotency per company)
+  - Notes (create with markdown, link to opportunity + company via noteTargets)
+  - Tasks (create with due dates, link to opportunity + company via taskTargets)
+  - List opportunities with MEDDPICC gaps
+  - Health check for `doctor` command
+- CLI auto-selects TwentyAdapter when `TWENTY_API_KEY` is set
+- Manual verification: health check, find/upsert company, find/upsert opportunity, apply_plan with idempotency
+- Gate: PASSED (48 tests)
 
 ---
 

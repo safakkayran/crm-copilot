@@ -13,10 +13,18 @@ from rich.table import Table
 from crm_copilot.apply import apply_plan  # noqa: TC001
 from crm_copilot.config import settings  # noqa: TC001
 from crm_copilot.crm.fake import FakeAdapter  # noqa: TC001
+from crm_copilot.crm.twenty import TwentyAdapter  # noqa: TC001
 from crm_copilot.extract import extract_insights  # noqa: TC001
 from crm_copilot.llm import complete_json  # noqa: TC001
 from crm_copilot.models import EmailDraft, UpdatePlan  # noqa: TC001
 from crm_copilot.planner import plan_updates  # noqa: TC001
+
+
+def _get_adapter() -> FakeAdapter | TwentyAdapter:
+    """Get the appropriate CRM adapter based on configuration."""
+    if settings.TWENTY_API_KEY:
+        return TwentyAdapter()
+    return FakeAdapter()
 
 app = typer.Typer(
     name="crm-copilot",
@@ -126,7 +134,7 @@ def process(
 
     # Apply to CRM (will use FakeAdapter if Twenty not configured)
     console.print("[cyan]Applying to CRM...[/cyan]")
-    adapter = FakeAdapter()  # TODO: Use TwentyAdapter when configured
+    adapter = _get_adapter()
     result = apply_plan(plan, adapter)
 
     console.print("[green]Applied successfully![/green]")
@@ -139,7 +147,7 @@ def process(
 @app.command()
 def missing() -> None:
     """List open opportunities with MEDDPICC gaps."""
-    adapter = FakeAdapter()  # TODO: Use TwentyAdapter
+    adapter = _get_adapter()
     opportunities = adapter.list_opportunities()
 
     if not opportunities:
@@ -192,8 +200,17 @@ def doctor() -> None:
         console.print(f"  LLM: [red]FAIL[/red] - {e}")
 
     console.print("[cyan]Checking Twenty CRM...[/cyan]")
-    # TODO: Check Twenty when TwentyAdapter is implemented
-    console.print("  Twenty: [yellow]Not configured (using FakeAdapter)[/yellow]")
+    if settings.TWENTY_API_KEY:
+        try:
+            adapter = TwentyAdapter()
+            if adapter.health_check():
+                console.print(f"  Twenty: [green]OK[/green] (base: {settings.TWENTY_BASE_URL})")
+            else:
+                console.print("  Twenty: [red]FAIL[/red] - health check failed")
+        except Exception as e:
+            console.print(f"  Twenty: [red]FAIL[/red] - {e}")
+    else:
+        console.print("  Twenty: [yellow]Not configured (using FakeAdapter)[/yellow]")
 
 
 @app.command()

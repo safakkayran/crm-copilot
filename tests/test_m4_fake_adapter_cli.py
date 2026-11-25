@@ -210,14 +210,16 @@ class TestCLI:
 
     def test_missing_command(self) -> None:
         """Test missing command."""
-        result = runner.invoke(app, ["missing"])
+        with patch("crm_copilot.cli.settings.TWENTY_API_KEY", None):
+            result = runner.invoke(app, ["missing"])
         assert result.exit_code == 0
         # With empty FakeAdapter, should show no opportunities
         assert "No opportunities found" in result.stdout or "Open Opportunities" in result.stdout
 
     def test_doctor_command(self) -> None:
         """Test doctor command."""
-        result = runner.invoke(app, ["doctor"])
+        with patch("crm_copilot.cli.settings.TWENTY_API_KEY", None):
+            result = runner.invoke(app, ["doctor"])
         assert result.exit_code == 0
         assert "LLM" in result.stdout
         assert "Twenty" in result.stdout
